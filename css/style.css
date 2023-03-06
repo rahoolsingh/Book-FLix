@@ -395,3 +395,8 @@ a#logo img {
 #footer .rf {
 	float:right;
 }
+.book-read-iframe{
+	width: 98vw;
+	max-width: 970px;
+	height: 70vh;
+}

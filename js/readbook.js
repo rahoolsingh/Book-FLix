@@ -7,9 +7,8 @@ const fetchBookPreview = (bookId) => {
     const bookPreviewUrl = `https://books.google.com/books?id=${bookId}&newbks=0&lpg=PP1&pg=PP1&output=embed`;
     const bookPreviewIframe = document.createElement("iframe");
     bookPreviewIframe.src = bookPreviewUrl;
-    bookPreviewIframe.width = "100%";
-    bookPreviewIframe.height = "500px";
-    
+    bookPreviewIframe.classList.add("book-read-iframe");
+
     const bookPreviewContainer = document.querySelector(".main");
     bookPreviewContainer.innerHTML = ""; // clear any previous preview
     bookPreviewContainer.appendChild(bookPreviewIframe);
