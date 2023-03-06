@@ -250,6 +250,30 @@ a#logo img {
 .searchquery::before{
 	content: Showing results for ;
 }
+.available-not{
+	background: red;
+	padding: 3px 0px;
+	font-size: x-small;
+	text-align: center;
+	color: white;
+	margin: auto;
+}
+.available-sample{
+	background: yellow;
+	padding: 3px 0px;
+	font-size: x-small;
+	text-align: center;
+	color: black;
+	margin: auto;
+}
+.available-full{
+	background: greenyellow;
+	padding: 3px 0px;
+	font-size: x-small;
+	text-align: center;
+	color: black;
+	margin: auto;
+}
 .error{
 	text-align: center;
 }

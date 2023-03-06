@@ -25,15 +25,13 @@ const fetchBooks = (query, box) => {
             const bookImageLink = document.createElement("a");
 
             const bookImage = document.createElement("img");
-            bookImageLink.appendChild(bookImage);
-            bookImageDiv.appendChild(bookImageLink);
-            bookDiv.appendChild(bookImageDiv);
-            
             const bookInnerDiv = document.createElement("div");
             const bookTitle = document.createElement("h3");
             bookTitle.id = "book-title-low";
             const authorName = document.createElement("h5");
             authorName.id = "author";
+            const available = document.createElement("h5");
+            available.className = "available";
             const bookInner = document.createElement("p");
             
 
@@ -47,12 +45,32 @@ const fetchBooks = (query, box) => {
                 bookImage.alt = book.volumeInfo.title;
                 bookTitle.textContent = book.volumeInfo.title;
                 authorName.textContent = book.volumeInfo.authors[0];
+                var availablity = book.accessInfo.accessViewStatus;
             } catch (error) {
                 bookImageLink.href = '?nan';
                 bookImage.alt = 'default';
                 bookTitle.textContent = 'Untitled eBook';
-                authorName.textContent = 'Not Available';
+                authorName.textContent = 'NaN';
             }
+            if(availablity == 'SAMPLE'){
+                available.className = 'available-sample'
+                available.textContent = 'Sample Only';
+
+            }
+            else if(availablity == 'FULL_PUBLIC_DOMAIN'){
+                available.className = 'available-full'
+                available.textContent = 'Available';
+
+            }
+            else{
+                available.className = 'available-not'
+                available.textContent = 'Not Available';
+
+            }
+            bookInnerDiv.appendChild(available);
+            bookImageLink.appendChild(bookImage);
+            bookImageDiv.appendChild(bookImageLink);
+            bookDiv.appendChild(bookImageDiv);
             bookInnerDiv.appendChild(bookTitle);
             bookInnerDiv.appendChild(authorName);
             bookInnerDiv.appendChild(bookInner);
