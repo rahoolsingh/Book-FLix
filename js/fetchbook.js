@@ -34,7 +34,7 @@ const fetchBooks = (query, box) => {
                 } catch (error) {
                     bookImage.src = 'css\\images\\book-cover.png';
                 }
-                bookImageLink.href = book.volumeInfo.infoLink;
+                bookImageLink.href = '/read?q='+book.id;
                 bookImage.alt = book.volumeInfo.title;
                 bookTitle.textContent = book.volumeInfo.title;
                 authorName.textContent = book.volumeInfo.authors[0];
