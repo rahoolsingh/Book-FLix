@@ -1,3 +1,12 @@
+var queryString = window.location.search;
+queryString = queryString.substring(1);
+var Array = queryString.split("?");
+var queryArray = Array[0].split("=");
+
+if(queryArray[0] == 'nan')
+{
+    window.alert('Not Available');
+}
 const fetchBooks = (query, box) => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
       .then(response => response.json())
@@ -39,7 +48,7 @@ const fetchBooks = (query, box) => {
                 bookTitle.textContent = book.volumeInfo.title;
                 authorName.textContent = book.volumeInfo.authors[0];
             } catch (error) {
-                bookImageLink.href = '#';
+                bookImageLink.href = '?nan';
                 bookImage.alt = 'default';
                 bookTitle.textContent = 'Untitled eBook';
                 authorName.textContent = 'Not Available';
@@ -70,3 +79,7 @@ const fetchBooks = (query, box) => {
   fetchBooks('Technology', '.box6');
   fetchBooks('news', '.box7');
   
+if(queryArray[0] == 'bookflixsearch')
+{
+    window.location.href = "/read?bookflixsearch="+queryArray[1]+"#";
+}
