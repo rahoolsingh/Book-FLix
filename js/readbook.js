@@ -90,11 +90,18 @@ const fetchBooks = (query, box) => {
     });
 };
 if (queryArray[0] == "bookflixsearch") {
-  queryArray[1] = queryArray[1].replace("+", " ");
-  fetchBooks(queryArray[1], ".box");
+  queryArray[1] = queryArray[1].split('+')
+  var searchquery = '';
+  for (i in queryArray[1]){
+      if(i != 0)
+        searchquery += ' ';
+      searchquery += (queryArray[1][i]);
+  }
+  console.log(searchquery);
+  fetchBooks(searchquery, ".box");
   document.querySelector(".searchquery").textContent =
-    "'" + queryArray[1] + "'";
-  document.title = "Bookflix | " + queryArray[1];
+    "'" + searchquery + "'";
+  document.title = "Bookflix | " + searchquery;
 } else {
   fetch(`https://www.googleapis.com/books/v1/volumes/${queryArray[0]}`)
     .then((response) => response.json())
