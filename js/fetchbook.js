@@ -8,16 +8,20 @@ if(queryArray[0] == 'nan')
     window.alert('Not Available');
 }
 const fetchBooks = (query, box) => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`)
       .then(response => response.json())
       .then(data => {
-        const books = data.items.slice(0, 6); // get only the first 6 items
+        const books = data.items.slice(0, 15); // get only the first 6 items
         const bookContainer = document.querySelector(box);
-        console.log(data);
+        // console.log(data);
         
         books.forEach(book => {
             const bookDiv = document.createElement("div");
             bookDiv.classList.add("book");
+            const bookDiva = document.createElement("a");
+            bookDiva.classList.add("bookLink");
+            
+            const hr = document.createElement('hr');
             
             const bookImageDiv = document.createElement("div");
             bookImageDiv.classList.add("book-image");
@@ -41,9 +45,13 @@ const fetchBooks = (query, box) => {
                 } catch (error) {
                     bookImage.src = 'css\\images\\book-cover.png';
                 }
-                bookImageLink.href = '/read?'+book.id;
+                bookDiva.href = '/read?'+book.id;
                 bookImage.alt = book.volumeInfo.title;
-                bookTitle.textContent = book.volumeInfo.title;
+                if (book.volumeInfo.title.length > 27) {
+                    bookTitle.textContent = (book.volumeInfo.title.substring(0, 26) + "...");
+                }else{
+                    bookTitle.textContent = book.volumeInfo.title
+                }
                 authorName.textContent = book.volumeInfo.authors[0];
                 var availablity = book.accessInfo.accessViewStatus;
             } catch (error) {
@@ -54,27 +62,31 @@ const fetchBooks = (query, box) => {
             }
             if(availablity == 'SAMPLE'){
                 available.className = 'available-sample'
-                available.textContent = 'Sample Only';
+                available.textContent = 'SAMPLE AVAILABLE';
 
             }
             else if(availablity == 'FULL_PUBLIC_DOMAIN'){
                 available.className = 'available-full'
-                available.textContent = 'Available';
+                available.textContent = 'FULL BOOK';
 
             }
             else{
                 available.className = 'available-not'
-                available.textContent = 'Not Available';
+                available.textContent = 'NOT AVAILABLE';
 
             }
-            bookInnerDiv.appendChild(available);
-            bookImageLink.appendChild(bookImage);
-            bookImageDiv.appendChild(bookImageLink);
-            bookDiv.appendChild(bookImageDiv);
+            // bookTitle.attributes = 'hidden';
+            // bookImageLink.appendChild(bookImage);
+            bookImageDiv.appendChild(bookImage);
+            bookDiva.appendChild(bookImageDiv);
+            bookDiva.appendChild(available);
+            bookDiv.appendChild(bookDiva);
+            bookInnerDiv.appendChild(hr);
             bookInnerDiv.appendChild(bookTitle);
             bookInnerDiv.appendChild(authorName);
             bookInnerDiv.appendChild(bookInner);
-            bookDiv.appendChild(bookInnerDiv);
+            bookDiva.appendChild(bookInnerDiv);
+            bookDiv.appendChild(bookDiva);
             
             bookContainer.appendChild(bookDiv);
         });
@@ -99,5 +111,5 @@ const fetchBooks = (query, box) => {
   
 if(queryArray[0] == 'bookflixsearch')
 {
-    window.location.href = "/read?bookflixsearch="+queryArray[1]+"#";
+    window.location.href = "/search?bookflixsearch="+queryArray[1]+"#";
 }

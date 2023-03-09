@@ -16,6 +16,10 @@ a {
 	text-decoration:underline;
 	cursor:pointer;
 }
+hr{
+	border: 1px solid #ffffff;
+	border-radius: 5px;
+}
 a:hover {
 	text-decoration:none;
 }
@@ -238,11 +242,21 @@ a#logo img {
 	padding-right:12px;
 	display: inline-flex;
 	flex-direction: column;
+	padding: 10px;
+	border: 1px solid #ffffff20;
+	border-radius: 5px;
+	background: #00000050;
+	margin: 10px auto;
+	transition: all .2s ease-in-out;
+	cursor: pointer;
 }
 .main-box .box{
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 990vw;
+}
+.bookLink{
+	text-decoration: none;
 }
 .searchquery{
 	text-align: center;
@@ -251,55 +265,51 @@ a#logo img {
 	content: Showing results for ;
 }
 .available-not{
-	background: red;
-	padding: 3px 0px;
-	font-size: x-small;
-	text-align: center;
-	color: white;
-	margin: auto;
+	color: red;
 }
 .available-sample{
-	background: yellow;
-	padding: 3px 0px;
-	font-size: x-small;
-	text-align: center;
-	color: black;
-	margin: auto;
+	color: yellow;
 }
 .available-full{
-	background: greenyellow;
-	padding: 3px 0px;
+	color: green;
+}
+.available-full, .available-not, .available-sample{
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: bold;
 	font-size: x-small;
 	text-align: center;
-	color: black;
-	margin: auto;
+	width:auto;
+	margin-bottom: 5px;
+}
+#book-title-low{
+	margin-top: 5px;
+	margin-bottom: 3px;
 }
 .error{
 	text-align: center;
 }
 .book-image {
 	float:left;
-	width:152px;
-	height:214px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	overflow: hidden;
 	position:relative;
 }
 .book-image img {
 	width:152px;
-	height:214px;
+	height:200px;
 	border: 1px solid black;
-	/* padding-bottom: 50px; */
 }
-.book-image img:hover{
-	opacity: 0.8;
-	border: 1px solid white;
+.book:hover{
+	/* border: 1px solid white; */
+	transform: scale(1.1);
 }
 .book-image a {
 	float:left;
 	display:inline;
-	width:152px;
-	height:214px;
 	position:relative;
 	z-index:2;
+	opacity: 0;
 }
 .play {
 	position:absolute;
@@ -434,12 +444,4 @@ a#logo img {
 }
 #footer .rf {
 	float:right;
-}
-.book-read-iframe{
-	width: 98vw;
-	max-width: 970px;
-	height: 70vh;
-	scrollbar-width: 1px;
-	margin: auto;
-	text-align: center;
 }

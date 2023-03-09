@@ -2,7 +2,7 @@
   <head>
     <title>Bookflix</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/reader.css" type="text/css" media="all" />
     <link
       rel="shortcut icon"
       href="css/images/favicon.ico"
@@ -15,115 +15,14 @@
   </head>
 
   <body>
-    <div id="shell">
-      <div id="header">
-        <a href="index.html" id="logo"><img src="css/images/logo.gif" /></a>
-        <div class="social">
-          <span>FOLLOW US ON:</span>
-          <ul>
-            <li>
-              <a
-                class="linkedin"
-                href="https://www.linkedin.com/company/securewonders"
-                target="_blank"
-                >linkedin</a
-              >
-            </li>
-            <li>
-              <a
-                class="facebook"
-                href="https://www.facebook.com/securewonders/"
-                target="_blank"
-                >facebook</a
-              >
-            </li>
-            <li>
-              <a
-                class="instagram"
-                href="https://www.instagram.com/securewonders/"
-                target="_blank"
-                >instagram</a
-              >
-            </li>
-            <li>
-              <a
-                class="whatsapp"
-                href="https://wa.me/+918210228101"
-                target="_blank"
-                >whatsapp</a
-              >
-            </li>
-          </ul>
+        <div class="logo" onclick="location.href = 'index'">
+            <img src="css/images/logo.gif">
         </div>
-        <div id="navigation">
-          <ul>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="/read?bookflixsearch=Business">BUSINESS</a></li>
-            <li><a href="/read?bookflixsearch=Science">SCIENCE</a></li>
-            <li><a href="/read?bookflixsearch=Fictional">FICTIONAL</a></li>
-            <li>
-              <a href="/read?bookflixsearch=non-fictional">NON FICTIONAL</a>
-            </li>
-            <li><a href="#">BookFlix Pro</a></li>
-          </ul>
+        <div class="main"></div>
+        <div class="home" onclick="location.href = 'index'">
+            Exit To Home
         </div>
-        <div id="sub-navigation">
-          <ul>
-            <li><a class="latest"></a></li>
-            <li>
-              <a class="link" href="/read?bookflixsearch=English">English</a>
-            </li>
-            <li><a class="link" href="/read?bookflixsearch=Hindi">Hindi</a></li>
-            <li>
-              <a class="link" href="/read?bookflixsearch=Information+Technology"
-                >Information Technology</a
-              >
-            </li>
-            <li>
-              <a class="link" href="/read?bookflixsearch=Cyber+Security"
-                >Cyber Security</a
-              >
-            </li>
-          </ul>
-          <div id="search">
-            <form action="#" method="get" accept-charset="utf-8">
-              <input
-                type="text"
-                name="bookflixsearch"
-                placeholder="Enter search here"
-                id="search-field"
-                class="blink search-field"
-              />
-              <input type="submit" value=" Enter →" class="search-button" />
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="main">
-        <div id="containt">
-          <div class="main-box">
-            <div class="head">
-              <h2>Showing Results For <span class="searchquery"></span></h2>
-              <p class="text-right">Secure Wonders</p>
-            </div>
-            <div class="box"></div>
-            <div class="cl">&nbsp;</div>
-          </div>
-        </div>
-      </div>
-      <div id="footer">
-        <p class="lf">
-          Copyright &copy; 2023 <a href="index.html">BookFlix</a> - All Rights
-          Reserved
-        </p>
-        <p class="rf">
-          Design by <a href="http://rahool.in/">Secure Wonders</a>
-        </p>
-        <div style="clear: both"></div>
-      </div>
-    </div>
-    <!-- END PAGE SOURCE -->
 
-    <script src="js/readbook.js"></script>
+    <script src="js/searchbook.js"></script>
   </body>
 </html>
