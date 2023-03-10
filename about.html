@@ -1,0 +1,412 @@
+<html>
+  <head>
+    <title>Bookflix</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link
+      rel="shortcut icon"
+      href="css/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="Discover the best books and enhance your reading experience with Bookflix. Browse a vast collection of books and get personalized recommendations based on your interests. With Bookflix, reading has never been more enjoyable."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap");
+      body{
+        overflow-x: hidden;
+      }
+      #main{
+        width: 100vw;
+      }
+
+      #main{
+        display: flex;
+        overflow-x: hidden;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .profile-img img {
+        max-width: 100%;
+        display: block;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* Utilities */
+      .card::after,
+      .card img {
+        border-radius: 50%;
+      }
+      .card,
+      .stats {
+        display: flex;
+      }
+
+      .card {
+        padding: 2.5rem 2rem;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        max-width: 450px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+        margin: 1rem;
+        position: relative;
+        transform-style: preserve-3d;
+        overflow: hidden;
+      }
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+      }
+      .card::before {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        top: -0.7rem;
+        left: -0.7rem;
+      }
+      .card::after {
+        height: 15rem;
+        width: 13rem;
+        background-color: #4172f5aa;
+        top: -8rem;
+        right: -8rem;
+        box-shadow: 2rem 6rem 0 -3rem #fff;
+      }
+
+      .card img {
+        width: 8rem;
+        min-width: 80px;
+        box-shadow: 0 0 0 5px #fff;
+      }
+
+      .infos {
+        margin-left: 1.5rem;
+      }
+
+      .name {
+        margin-bottom: 1rem;
+      }
+      .name h2 {
+        font-size: 1.3rem;
+      }
+      .name h4 {
+        font-size: 0.8rem;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      .text {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .stats {
+        margin-bottom: 1rem;
+      }
+      .stats li {
+        min-width: 5rem;
+      }
+      .stats li h3 {
+        font-size: 0.99rem;
+      }
+      .stats li h4 {
+        
+        font-size: 0.75rem;
+      }
+
+      .links button {
+        font-family: "Poppins", sans-serif;
+        min-width: 120px;
+        padding: 0.5rem;
+        border: 1px solid #222;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.25s linear;
+      }
+      .links .follow,
+      .links .view:hover {
+        background-color: #222;
+        color: #fff;
+      }
+      .links .view,
+      .links .follow:hover {
+        background-color: transparent;
+        color: #222;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .main{
+            display: block;
+        }
+        .card {
+          display: block;
+          
+        }
+        .infos {
+          margin-left: 0;
+          margin-top: 1.5rem;
+        }
+        .links button {
+          min-width: 100px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="shell">
+      <div id="header">
+        <a href="index.html" id="logo"><img src="css/images/logo.gif" /></a>
+        <div class="social">
+          <span>FOLLOW US ON:</span>
+          <ul>
+            <li>
+              <a
+                class="linkedin"
+                href="https://www.linkedin.com/company/securewonders"
+                target="_blank"
+                >linkedin</a
+              >
+            </li>
+            <li>
+              <a
+                class="facebook"
+                href="https://www.facebook.com/securewonders/"
+                target="_blank"
+                >facebook</a
+              >
+            </li>
+            <li>
+              <a
+                class="instagram"
+                href="https://www.instagram.com/securewonders/"
+                target="_blank"
+                >instagram</a
+              >
+            </li>
+            <li>
+              <a
+                class="whatsapp"
+                href="https://wa.me/+918210228101"
+                target="_blank"
+                >whatsapp</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div id="navigation">
+          <ul>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="/search?bookflixsearch=Business">BUSINESS</a></li>
+            <li><a href="/search?bookflixsearch=Science">SCIENCE</a></li>
+            <li><a href="/search?bookflixsearch=Fictional">FICTIONAL</a></li>
+            <li>
+              <a href="/search?bookflixsearch=non-fictional">NON FICTIONAL</a>
+            </li>
+            <li><a href="#">BookFlix Pro</a></li>
+          </ul>
+        </div>
+        <div id="sub-navigation">
+          <ul>
+            <li><a class="latest"></a></li>
+            <li>
+              <a class="link" href="/search?bookflixsearch=English">English</a>
+            </li>
+            <li>
+              <a class="link" href="/search?bookflixsearch=Hindi">Hindi</a>
+            </li>
+            <li>
+              <a
+                class="link"
+                href="/search?bookflixsearch=Information+Technology"
+                >Information Technology</a
+              >
+            </li>
+            <li>
+              <a class="link" href="/search?bookflixsearch=Cyber+Security"
+                >Cyber Security</a
+              >
+            </li>
+          </ul>
+          <div id="search">
+            <form action="#" method="get" accept-charset="utf-8">
+              <input
+                type="text"
+                name="bookflixsearch"
+                placeholder="Enter search here"
+                id="search-field"
+                class="blink search-field"
+              />
+              <input type="submit" value=" Enter →" class="search-button" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="main">
+        <div class="profile-container" hidden>
+          <div class="profile">
+            <div class="profile-image">
+              <img src="src/profile/rahulsingh.png" />
+            </div>
+            <h2 class="profile-name">Rahul Kumar Singh</h2>
+            <a class="profile-instagram"></a>
+            <a class="profile-github"></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img">
+            <img
+              src="src/rahul.webp"
+            />
+          </div>
+          <div class="infos">
+            <div class="name">
+              <h2>Rahul Kr. Yadav</h2>
+              <h4 onclick="location.href = 'https://rahullweb.netlify.app/'">rahullweb.netlify.app</h4>
+            </div>
+            <p class="text">
+                I'm Rahul Kumar Yadav and i'm passionate about implementing and launching new projects. Ability to translate business requirements into technical solutions.
+            </p>
+            <ul class="stats">
+              <li>
+                <h3>8</h3>
+                <h4>Projects</h4>
+              </li>
+            <li>
+              <h3>800❤️</h3>
+              <h4>Likes</h4>
+            </li>
+          </ul>
+            <div class="links">
+              <button onclick="location.href = 'https://instagram.com/iam_rahulyadav_'" class="follow">Instagram</button>
+              <button onclick="location.href = 'https://github.com/webdevjerry'" class="follow">View GitHub</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+            <div class="profile-img">
+              <img
+                src="src/ravi.webp"
+              />
+            </div>
+            <div class="infos">
+              <div class="name">
+                <h2>Ravindra Kr. Gorain</h2>
+                <h4 onclick="location.href = 'https://instagram/ravi.sahuu'">Instagram: @ravi.sahuu</h4>
+              </div>
+              <p class="text">
+                  I'm a passionate content creator, a web developer and a technical freak. Working with my skills to provide support for the organisations.
+              </p>
+              <ul class="stats">
+                <li>
+                  <h3>6</h3>
+                  <h4>Projects</h4>
+                </li>
+              <li>
+                <h3>690❤️</h3>
+                <h4>Likes</h4>
+              </li>
+            </ul>
+              <div class="links">
+                <button onclick="location.href = 'https://instagram/ravi.sahuu'" class="follow">Instagram</button>
+                <button onclick="location.href = 'https://github/ravisahuu'" class="follow">View GitHub</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="main">
+
+            <div class="card">
+                <div class="profile-img">
+                  <img
+                    src="src/rahool.webp"
+                  />
+                </div>
+                <div class="infos">
+                  <div class="name">
+                    <h2>Rahul Kr. Singh</h2>
+                    <h4>www.rahool.in</h4>
+                  </div>
+                  <p class="text">
+                    Pursuing opportunities that will allow me to grow professionally, by effectively utilizing the versatile skill to help organisations to grow. I love to work with free mind and peace around me.
+                  </p>
+                  <ul class="stats">
+                    <li>
+                      <h3>13</h3>
+                      <h4>Projects</h4>
+                    </li>
+                  <li>
+                    <h3>560❤️</h3>
+                    <h4>Likes</h4>
+                  </li>
+                </ul>
+                  <div class="links">
+                    <button onclick="location.href = 'https://instagram/rahoolsingh.inc'" class="follow">Instagram</button>
+                    <button onclick="location.href = 'https://github/rahoolsingh'" class="follow">View GitHub</button>
+                  </div>
+                </div>
+              </div>
+
+
+          <div class="card">
+          <div class="profile-img">
+            <img
+              src="src/farhan.webp"
+            />
+          </div>
+          <div class="infos">
+            <div class="name">
+              <h2>Farhan Anasari</h2>
+              <h4 onclick="location.href = 'https://farhan-ansari-portfolio.netlify.app/'">Visit Website</h4>
+            </div>
+            <p class="text">
+                Hey, My name is Farhan Ansari. I am a software and web developer.<br><br> 
+                La Vie Est Belle
+            </p>
+            <ul class="stats">
+              <li>
+                <h3>7</h3>
+                <h4>Projects</h4>
+              </li>
+            <li>
+              <h3>670❤️</h3>
+              <h4>Likes</h4>
+            </li>
+          </ul>
+            <div class="links">
+              <button onclick="location.href = 'https:instagram.com/_the_farhan_ansari'" class="follow">Instagram</button>
+              <button onclick="location.href = 'https:github.com/rajfarhan'" class="follow">View GitHub</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cl">&nbsp;</div>
+      </div>
+      <div id="footer">
+        <p class="lf">
+          Copyright &copy; 2023 <a href="index.html">BookFlix</a> - All Rights
+          Reserved
+        </p>
+        <p class="rf">
+          Design by <a href="http://rahool.in/">Secure Wonders</a>
+        </p>
+        <div style="clear: both"></div>
+      </div>
+    </div>
+    <!-- END PAGE SOURCE -->
+
+    <script src="js/fetchbook.js"></script>
+  </body>
+</html>
